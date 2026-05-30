@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Allestree Fish Bar — Blenheim Parade, Derby</title>
+<meta name="description" content="Allestree's chippy on Blenheim Parade. Fish, chips, kebabs, pies and the Famous Mini Special. Lunch and evenings, Tuesday to Saturday.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0E0C;
+  --paper:#FCFAF4;
+  --cream:#E9D5A1;
+  --cream-deep:#D9BF7E;
+  --amber:#C75B12;
+  --amber-deep:#9A3F08;
+  --malt:#5B3A1E;
+  --display:"Big Shoulders Display","Impact",sans-serif;
+  --body:"Lora",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(1rem,.95rem + .15vw,1.075rem);
+  line-height:1.55;
+  font-weight:400;
+  text-wrap:pretty;
+  hyphens:auto;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  opacity:.04;
+  mix-blend-mode:multiply;
+  background-image:
+    radial-gradient(circle at 12% 18%, var(--ink) 1px, transparent 1.4px),
+    radial-gradient(circle at 71% 47%, var(--ink) 1px, transparent 1.4px),
+    radial-gradient(circle at 33% 82%, var(--ink) 1px, transparent 1.4px);
+  background-size:7px 7px,11px 11px,5px 5px;
+}
+h1,h2,h3,h4{
+  font-family:var(--display);
+  text-wrap:balance;
+  line-height:.9;
+  letter-spacing:-.005em;
+}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* ── NAV ── */
+.nav{
+  position:relative;
+  z-index:5;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:1.2rem clamp(1.1rem,4vw,3rem) .6rem;
+  gap:1rem;
+}
+.brand{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(.95rem,.85rem + .4vw,1.15rem);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+.brand span{color:var(--amber)}
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.45rem .85rem .4rem;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.78rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  background:var(--paper);
+}
+.status::before{
+  content:"";
+  width:.55rem;
+  height:.55rem;
+  border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 0 4px rgba(199,91,18,.18);
+}
+
+/* ── MASTHEAD ── */
+.masthead{
+  position:relative;
+  z-index:2;
+  padding:clamp(2rem,5vw,5rem) clamp(1.1rem,4vw,3rem) clamp(1.5rem,4vw,3rem);
+}
+.masthead__kicker{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.85rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--malt);
+  margin-bottom:1.4rem;
+}
+.masthead__kicker::after{
+  content:"";
+  flex:1;
+  height:1.5px;
+  background:currentColor;
+  opacity:.45;
+}
+.masthead__title{
+  font-weight:900;
+  font-size:clamp(3.4rem,15vw,12.5rem);
+  letter-spacing:-.012em;
+  line-height:.82;
+  color:var(--ink);
+  text-transform:uppercase;
+}
+.masthead__title em{
+  font-style:normal;
+  display:block;
+  color:var(--amber);
+}
+.masthead__sub{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.6rem;
+  margin-top:clamp(1.6rem,3vw,2.4rem);
+  align-items:end;
+}
+@media (min-width:760px){
+  .masthead__sub{grid-template-columns:1.4fr 1fr;gap:3rem}
+}
+.masthead__lede{
+  font-family:var(--body);
+  font-style:italic;
+  font-size:clamp(1.05rem,.9rem + .65vw,1.4rem);
+  line-height:1.4;
+  max-width:34ch;
+  color:var(--ink);
+}
+.masthead__meta{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.95rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  line-height:1.45;
+  color:var(--ink);
+}
+.masthead__meta span{display:block;color:var(--malt);font-weight:500;font-size:.78rem;letter-spacing:.22em;margin-top:.1rem}
+
+/* ── MARQUEE ── */
+.marquee{
+  position:relative;
+  z-index:2;
+  background:var(--ink);
+  color:var(--cream);
+  border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);
+  overflow:hidden;
+  padding:1.1rem 0;
+}
+.marquee__track{
+  display:flex;
+  gap:3rem;
+  white-space:nowrap;
+  width:max-content;
+  animation:scroll 38s linear infinite;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.05rem,.9rem + .8vw,1.55rem);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.marquee__item{display:inline-flex;align-items:center;gap:3rem}
+.marquee__item::after{
+  content:"✦";
+  color:var(--amber);
+  font-size:.85em;
+}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .marquee__track{animation:none}
+}
+
+/* ── SECTION shell ── */
+section{position:relative;z-index:2}
+.wrap{
+  max-width:78rem;
+  margin:0 auto;
+  padding:0 clamp(1.1rem,4vw,3rem);
+}
+
+/* ── SPECIAL CALLOUT ── */
+.callout{
+  padding:clamp(3rem,7vw,6rem) 0 clamp(2rem,5vw,4rem);
+  background:var(--cream);
+  border-bottom:2px solid var(--ink);
+}
+.callout__inner{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2rem;
+  align-items:start;
+}
+@media (min-width:880px){
+  .callout__inner{grid-template-columns:1fr 1.1fr;gap:4rem}
+}
+.callout__label{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.82rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--amber-deep);
+  margin-bottom:.6rem;
+}
+.callout__title{
+  font-weight:900;
+  font-size:clamp(2.4rem,7vw,5.5rem);
+  text-transform:uppercase;
+  letter-spacing:-.01em;
+  line-height:.88;
+}
+.callout__title em{font-style:italic;color:var(--amber);font-family:var(--body);font-weight:500;text-transform:none;font-size:.6em;display:block;letter-spacing:0;margin-top:.4rem}
+.callout__body{
+  font-size:clamp(1rem,.9rem + .35vw,1.15rem);
+  line-height:1.55;
+  max-width:38ch;
+}
+.callout__body strong{font-family:var(--display);font-weight:900;letter-spacing:.04em;font-size:1.05em}
+.callout__price{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(2.4rem,5vw,3.8rem);
+  color:var(--amber);
+  display:inline-block;
+  margin-top:1rem;
+  letter-spacing:-.01em;
+}
+
+/* ── MENU ── */
+.menu{
+  padding:clamp(3rem,7vw,6rem) 0 clamp(3rem,7vw,5rem);
+}
+.menu__head{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+  align-items:end;
+  margin-bottom:clamp(2rem,4vw,3rem);
+}
+@media (min-width:760px){.menu__head{grid-template-columns:auto 1fr auto}}
+.menu__head h2{
+  font-weight:900;
+  font-size:clamp(2.6rem,6vw,4.6rem);
+  text-transform:uppercase;
+  letter-spacing:-.01em;
+}
+.menu__rule{
+  height:2px;
+  background:var(--ink);
+  margin:0 0 .35rem;
+  display:none;
+}
+@media (min-width:760px){.menu__rule{display:block}}
+.menu__note{
+  font-family:var(--display);
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.78rem;
+  color:var(--malt);
+  align-self:end;
+  padding-bottom:.35rem;
+}
+
+.menu__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2.2rem,4vw,3.4rem) clamp(2rem,4vw,4rem);
+}
+@media (min-width:780px){
+  .menu__grid{grid-template-columns:1fr 1fr}
+}
+
+.section{
+  break-inside:avoid;
+}
+.section__head{
+  display:flex;
+  align-items:baseline;
+  gap:1rem;
+  margin-bottom:1rem;
+  padding-bottom:.6rem;
+  border-bottom:1.5px solid var(--ink);
+}
+.section__head h3{
+  font-weight:900;
+  font-size:clamp(1.6rem,2.2vw,2.1rem);
+  text-transform:uppercase;
+  letter-spacing:-.005em;
+  color:var(--ink);
+}
+.section__num{
+  font-family:var(--body);
+  font-style:italic;
+  font-weight:400;
+  font-size:.95rem;
+  color:var(--malt);
+  margin-left:auto;
+}
+
+.items{list-style:none}
+.item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:.4rem 1rem;
+  padding:.55rem 0;
+  font-size:1.02rem;
+  line-height:1.35;
+  border-bottom:1px dotted rgba(14,14,12,.18);
+  transition:background .18s ease,padding .18s ease;
+}
+.item:hover{background:rgba(233,213,161,.35);padding-left:.45rem;padding-right:.45rem}
+.item__name{font-weight:500}
+.item__note{
+  grid-column:1/-1;
+  font-size:.85rem;
+  font-style:italic;
+  color:var(--malt);
+  margin-top:-.15rem;
+}
+.item__price{
+  font-family:var(--display);
+  font-weight:700;
+  letter-spacing:.02em;
+  font-size:1.08rem;
+  color:var(--amber-deep);
+  white-space:nowrap;
+  align-self:start;
+}
+.item.veg .item__name::after{
+  content:"V";
+  display:inline-block;
+  margin-left:.45em;
+  padding:.05em .35em;
+  border:1px solid var(--malt);
+  border-radius:3px;
+  font-family:var(--display);
+  font-size:.7em;
+  letter-spacing:.05em;
+  color:var(--malt);
+  vertical-align:.1em;
+}
+
+@supports (animation-timeline:view()){
+  .section{
+    animation:rise both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 28%;
+  }
+  @keyframes rise{
+    from{opacity:0;transform:translateY(1.4rem)}
+    to{opacity:1;transform:translateY(0)}
+  }
+}
+
+/* ── HOURS ── */
+.hours{
+  background:var(--ink);
+  color:var(--paper);
+  padding:clamp(3rem,6vw,5rem) 0;
+  border-top:2px solid var(--ink);
+}
+.hours__inner{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2.2rem;
+  align-items:start;
+}
+@media (min-width:820px){
+  .hours__inner{grid-template-columns:.9fr 1.1fr;gap:4rem}
+}
+.hours__title{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(2.6rem,6vw,4.6rem);
+  letter-spacing:-.012em;
+  line-height:.88;
+  text-transform:uppercase;
+}
+.hours__title em{
+  font-style:normal;
+  color:var(--amber);
+  display:block;
+}
+.hours__lede{
+  font-family:var(--body);
+  font-style:italic;
+  font-size:clamp(1rem,.9rem + .4vw,1.2rem);
+  color:var(--cream);
+  margin-top:1.2rem;
+  max-width:30ch;
+  line-height:1.45;
+}
+.hours__table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(1.05rem,.95rem + .4vw,1.3rem);
+  letter-spacing:.04em;
+}
+.hours__table tr{
+  border-bottom:1px solid rgba(252,250,244,.18);
+}
+.hours__table th,
+.hours__table td{
+  padding:.85rem .4rem;
+  text-align:left;
+  vertical-align:baseline;
+}
+.hours__table th{
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:.95em;
+  width:9rem;
+}
+.hours__table td{
+  font-weight:500;
+  text-align:right;
+  color:var(--cream);
+}
+.hours__table tr.closed td{color:var(--malt);font-style:italic;font-family:var(--body);font-weight:400;letter-spacing:0;font-size:.95em}
+
+/* ── FIND ── */
+.find{
+  padding:clamp(3rem,7vw,6rem) 0 clamp(2rem,5vw,4rem);
+  background:var(--cream);
+  border-top:2px solid var(--ink);
+}
+.find__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2.4rem;
+}
+@media (min-width:820px){
+  .find__grid{grid-template-columns:1.1fr .9fr;gap:4rem}
+}
+.find__title{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(2.6rem,6vw,4.6rem);
+  text-transform:uppercase;
+  letter-spacing:-.01em;
+  line-height:.88;
+  margin-bottom:1.4rem;
+}
+.letterhead{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(1.25rem,1rem + .8vw,1.7rem);
+  line-height:1.45;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.letterhead .line{display:block}
+.letterhead .accent{color:var(--amber-deep);font-weight:900}
+.find__note{
+  font-family:var(--body);
+  font-style:italic;
+  font-size:1.02rem;
+  color:var(--malt);
+  margin-top:1.5rem;
+  max-width:32ch;
+  line-height:1.55;
+}
+.find__socials{
+  margin-top:2rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.8rem;
+}
+.find__socials a{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.7rem 1.05rem;
+  border:1.5px solid var(--ink);
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.85rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  background:var(--paper);
+  transition:background .2s ease,color .2s ease;
+}
+.find__socials a:hover{background:var(--ink);color:var(--cream)}
+
+.map{
+  position:relative;
+  aspect-ratio:1/.9;
+  background:var(--paper);
+  border:2px solid var(--ink);
+  overflow:hidden;
+}
+.map svg{display:block;width:100%;height:100%}
+.map__cap{
+  position:absolute;
+  left:1rem;
+  bottom:1rem;
+  background:var(--paper);
+  padding:.6rem .9rem;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.8rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  border:1.5px solid var(--ink);
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);
+  color:var(--cream);
+  padding:clamp(2rem,4vw,3rem) clamp(1.1rem,4vw,3rem);
+  font-family:var(--display);
+  font-weight:500;
+  font-size:.82rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  text-align:center;
+}
+footer span{color:var(--amber)}
+
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">Allestree <span>Fish Bar</span></div>
+  <div class="status">Open Tue–Sat · Lunch &amp; Evenings</div>
+</header>
+
+<section class="masthead">
+  <p class="masthead__kicker">Est. on Blenheim Parade · Allestree · Derby</p>
+  <h1 class="masthead__title">
+    Allestree
+    <em>Fish Bar.</em>
+  </h1>
+  <div class="masthead__sub">
+    <p class="masthead__lede">
+      A proper Derby chippy. Fresh cod and haddock from the fryer, hand-cut chips, the Famous Mini Special, kebabs, pies and pasties — six days a week on Blenheim Parade.
+    </p>
+    <div class="masthead__meta">
+      5 Blenheim Parade<br>
+      Allestree, Derby<br>
+      DE22&nbsp;2GP
+      <span>— Find us —</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">Allestree's Famous Mini Special</span>
+    <span class="marquee__item">Cod &amp; Chips · £9.95</span>
+    <span class="marquee__item">Allestree House Special Kebab</span>
+    <span class="marquee__item">Fresh Haddock · £9.95</span>
+    <span class="marquee__item">Halloumi Kebab</span>
+    <span class="marquee__item">All-Steak Pie · £4.45</span>
+    <span class="marquee__item">Scampi Meal · £10.45</span>
+    <span class="marquee__item">Fishcake &amp; Chips</span>
+    <span class="marquee__item">Allestree's Famous Mini Special</span>
+    <span class="marquee__item">Cod &amp; Chips · £9.95</span>
+    <span class="marquee__item">Allestree House Special Kebab</span>
+    <span class="marquee__item">Fresh Haddock · £9.95</span>
+    <span class="marquee__item">Halloumi Kebab</span>
+    <span class="marquee__item">All-Steak Pie · £4.45</span>
+    <span class="marquee__item">Scampi Meal · £10.45</span>
+    <span class="marquee__item">Fishcake &amp; Chips</span>
+  </div>
+</div>
+
+<section class="callout">
+  <div class="wrap callout__inner">
+    <div>
+      <p class="callout__label">— Signature of the house —</p>
+      <h2 class="callout__title">
+        The Famous
+        <em>Mini Special.</em>
+      </h2>
+      <span class="callout__price">£10.45</span>
+    </div>
+    <div class="callout__body">
+      <p><strong>Allestree's Famous Mini Special</strong> — the one regulars order without looking at the board. Part of the All-Day Value Meals, served from open till close. Alongside it sits the <em>Allestree House Special</em> kebab (£12.50) for evenings when a Mini won't do.</p>
+    </div>
+  </div>
+</section>
+
+<section class="menu wrap" id="menu">
+  <div class="menu__head">
+    <h2>The Menu</h2>
+    <hr class="menu__rule" aria-hidden="true">
+    <p class="menu__note">Prices in pounds sterling · V denotes vegetarian</p>
+  </div>
+
+  <div class="menu__grid">
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Fresh Fish</h3>
+        <span class="section__num">i.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">Cod</span><span class="item__price">£9.95</span></li>
+        <li class="item"><span class="item__name">Haddock</span><span class="item__price">£9.95</span></li>
+        <li class="item"><span class="item__name">Mini Fish</span><span class="item__price">£6.65</span></li>
+        <li class="item"><span class="item__name">Fish Bites</span><span class="item__price">from £2.80</span></li>
+        <li class="item"><span class="item__name">Fishcake</span><span class="item__price">£2.50</span></li>
+        <li class="item"><span class="item__name">Whole Tail Scampi</span><span class="item__price">from £5.50</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Chips</h3>
+        <span class="section__num">ii.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">Small Chips</span><span class="item__price">£3.00</span></li>
+        <li class="item"><span class="item__name">Regular Chips</span><span class="item__price">£3.80</span></li>
+        <li class="item"><span class="item__name">Large Chips</span><span class="item__price">£5.60</span></li>
+        <li class="item"><span class="item__name">Potato Fritter</span><span class="item__price">£1.00</span></li>
+        <li class="item"><span class="item__name">Chip Mixes</span><span class="item__price">from £5.50</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>All-Day Value Meals</h3>
+        <span class="section__num">iii.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">Allestree's Famous Mini Special</span><span class="item__price">£10.45</span></li>
+        <li class="item"><span class="item__name">Fish Supper</span><span class="item__price">£14.65</span></li>
+        <li class="item"><span class="item__name">Fish Bites Meal</span><span class="item__price">£9.65</span></li>
+        <li class="item"><span class="item__name">Scampi Meal</span><span class="item__price">£10.45</span></li>
+        <li class="item"><span class="item__name">Pie Meal</span><span class="item__price">£8.75</span></li>
+        <li class="item"><span class="item__name">Sausage Meal</span><span class="item__price">£6.40</span></li>
+        <li class="item"><span class="item__name">Fishcake Meal</span><span class="item__price">£6.40</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Kebabs</h3>
+        <span class="section__num">iv.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">Allestree House Special</span><span class="item__price">£12.50</span></li>
+        <li class="item"><span class="item__name">Doner Kebab in Pitta</span><span class="item__price">£8.95</span></li>
+        <li class="item"><span class="item__name">Chicken Kebab in Pitta</span><span class="item__price">£8.95</span></li>
+        <li class="item"><span class="item__name">Mix Kebab in Pitta</span><span class="item__price">£8.95</span></li>
+        <li class="item"><span class="item__name">Doner Meat — chips or salad</span><span class="item__price">from £7.35</span></li>
+        <li class="item"><span class="item__name">Chicken Meat — chips or salad</span><span class="item__price">from £7.35</span></li>
+        <li class="item veg"><span class="item__name">Halloumi Kebab in Pitta</span><span class="item__price">£7.75</span></li>
+        <li class="item veg"><span class="item__name">Salad Pitta</span><span class="item__price">£5.00</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Wraps</h3>
+        <span class="section__num">v.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">Chicken Wrap</span><span class="item__price">£7.50</span></li>
+        <li class="item"><span class="item__name">Doner Wrap</span><span class="item__price">£7.50</span></li>
+        <li class="item"><span class="item__name">Mix Wrap</span><span class="item__price">£7.50</span></li>
+        <li class="item veg"><span class="item__name">Halloumi Wrap</span><span class="item__price">£7.00</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Pies &amp; Pasties</h3>
+        <span class="section__num">vi.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">All-Steak Pie</span><span class="item__price">£4.45</span></li>
+        <li class="item"><span class="item__name">Steak &amp; Kidney</span><span class="item__price">£4.45</span></li>
+        <li class="item"><span class="item__name">Chicken &amp; Mushroom</span><span class="item__price">£4.45</span></li>
+        <li class="item"><span class="item__name">Beef &amp; Onion</span><span class="item__price">£4.45</span></li>
+        <li class="item veg"><span class="item__name">Cheese &amp; Onion Pasty</span><span class="item__price">£4.25</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Burgers</h3>
+        <span class="section__num">vii.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">Quarter Pounder</span><span class="item__price">£5.20</span></li>
+        <li class="item"><span class="item__name">Half Pounder</span><span class="item__price">£6.50</span></li>
+        <li class="item"><span class="item__name">Chicken Breast Fillet Burger</span><span class="item__price">£5.30</span></li>
+        <li class="item veg"><span class="item__name">Vegetarian Burger</span><span class="item__price">£5.30</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Extras &amp; Sides</h3>
+        <span class="section__num">viii.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">Curry / Irish Curry / Gravy / Beans / Peas</span><span class="item__price">from £1.80</span></li>
+        <li class="item"><span class="item__name">Battered Sausage</span><span class="item__price">from £1.30</span></li>
+        <li class="item"><span class="item__name">Plain Sausage</span><span class="item__price">from £1.30</span></li>
+        <li class="item"><span class="item__name">Chicken Breast</span><span class="item__price">£5.20</span></li>
+        <li class="item"><span class="item__name">Chicken Nuggets (4 · 7 · 12)</span><span class="item__price">£3.50 — £7.80</span></li>
+        <li class="item veg"><span class="item__name">Halloumi Sticks (3 · 5)</span><span class="item__price">£4.00 — £6.00</span></li>
+        <li class="item veg"><span class="item__name">Cheese &amp; Onion Fryit</span><span class="item__price">£2.50</span></li>
+        <li class="item veg"><span class="item__name">Pineapple Ring</span><span class="item__price">£1.50</span></li>
+        <li class="item"><span class="item__name">Bottle of Vinegar</span><span class="item__price">£2.40</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Drinks</h3>
+        <span class="section__num">ix.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">330ml Can</span><span class="item__price">£1.60</span></li>
+        <li class="item"><span class="item__name">500ml Bottle</span><span class="item__price">£2.30</span></li>
+        <li class="item"><span class="item__name">1.25L Bottle</span><span class="item__price">£3.30</span></li>
+      </ul>
+    </article>
+
+    <article class="section">
+      <div class="section__head">
+        <h3>Kids</h3>
+        <span class="section__num">x.</span>
+      </div>
+      <ul class="items">
+        <li class="item"><span class="item__name">Kids Meal</span><span class="item__price">£5.85</span></li>
+        <li class="item"><span class="item__note">Smaller portion, perfect after school or before a Saturday evening out.</span></li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="wrap hours__inner">
+    <div>
+      <h2 class="hours__title">
+        When we're
+        <em>frying.</em>
+      </h2>
+      <p class="hours__lede">Lunchtime and evenings, Tuesday through Saturday. Closed Sunday and Monday — the fryer rests too.</p>
+    </div>
+    <table class="hours__table">
+      <tr class="closed"><th>Sunday</th><td>Closed</td></tr>
+      <tr class="closed"><th>Monday</th><td>Closed</td></tr>
+      <tr><th>Tuesday</th><td>12:00 – 14:00 &nbsp; · &nbsp; 16:30 – 21:00</td></tr>
+      <tr><th>Wednesday</th><td>12:00 – 14:00 &nbsp; · &nbsp; 16:30 – 21:00</td></tr>
+      <tr><th>Thursday</th><td>12:00 – 14:00 &nbsp; · &nbsp; 16:30 – 21:00</td></tr>
+      <tr><th>Friday</th><td>12:00 – 14:00 &nbsp; · &nbsp; 16:30 – 21:00</td></tr>
+      <tr><th>Saturday</th><td>12:00 – 14:00 &nbsp; · &nbsp; 16:30 – 20:30</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="find" id="find">
+  <div class="wrap find__grid">
+    <div>
+      <h2 class="find__title">Find us.</h2>
+      <address class="letterhead">
+        <span class="line">Allestree Fish Bar</span>
+        <span class="line accent">5 Blenheim Parade</span>
+        <span class="line">Allestree</span>
+        <span class="line">Derby</span>
+        <span class="line accent">DE22&nbsp;2GP</span>
+      </address>
+      <p class="find__note">A short walk from Allestree Park — corner of Blenheim Parade, opposite the parade shops. Visa, Mastercard and American Express accepted.</p>
+      <div class="find__socials">
+        <a href="https://www.facebook.com/allestreefishbar/" rel="noopener" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/allestreefish/" rel="noopener" target="_blank">Instagram</a>
+        <a href="https://www.allestreefishbar.hungrrr.co.uk/takeaway/menus.php" rel="noopener" target="_blank">Order Online</a>
+      </div>
+    </div>
+    <div class="map" aria-label="Map sketch of Blenheim Parade location">
+      <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img">
+        <rect width="400" height="360" fill="#FCFAF4"/>
+        <g stroke="#0E0E0C" stroke-width="1.6" fill="none" opacity=".55">
+          <path d="M0,90 L400,72"/>
+          <path d="M0,170 L400,158"/>
+          <path d="M0,260 L400,244"/>
+          <path d="M80,0 L70,360"/>
+          <path d="M200,0 L188,360"/>
+          <path d="M320,0 L312,360"/>
+        </g>
+        <g stroke="#0E0E0C" stroke-width="2.4" fill="none">
+          <path d="M-10,205 C 60,200 140,194 215,188 S 360,176 410,172"/>
+        </g>
+        <text x="220" y="178" font-family="Big Shoulders Display, sans-serif" font-size="13" font-weight="700" fill="#5B3A1E" letter-spacing="2">BLENHEIM PARADE</text>
+        <g transform="translate(212,196)">
+          <circle r="14" fill="#C75B12"/>
+          <circle r="22" fill="none" stroke="#C75B12" stroke-width="1.5" opacity=".5"/>
+          <circle r="30" fill="none" stroke="#C75B12" stroke-width="1" opacity=".25"/>
+          <text y="5" font-family="Big Shoulders Display,sans-serif" font-size="14" font-weight="900" fill="#FCFAF4" text-anchor="middle">5</text>
+        </g>
+        <text x="20" y="50" font-family="Big Shoulders Display, sans-serif" font-size="11" font-weight="700" fill="#5B3A1E" letter-spacing="2">ALLESTREE</text>
+        <text x="20" y="328" font-family="Big Shoulders Display, sans-serif" font-size="11" font-weight="700" fill="#5B3A1E" letter-spacing="2">DERBY · DE22</text>
+      </svg>
+      <span class="map__cap">N° 5</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Allestree Fish Bar &nbsp;·&nbsp; <span>5 Blenheim Parade, Derby DE22&nbsp;2GP</span> &nbsp;·&nbsp; Tue – Sat
+</footer>
+
+</body>
+</html>
